@@ -3,7 +3,6 @@ using System.Reflection;
 
 namespace ReflectionInCharp
 {
-   
     public class WarningMessageservice
     {
         private  NetworkMonitorSettings _monitorSettings;
@@ -92,7 +91,6 @@ namespace ReflectionInCharp
             Console.WriteLine($"Sending a warning mail to {address} with subject {subject}.");
         }
     }
-
 
     public class SoundHornService
     {

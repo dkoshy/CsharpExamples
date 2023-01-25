@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using ReflectionMagic;
+using System.Reflection;
 
 namespace ReflectionInCharp
 {
@@ -136,5 +137,67 @@ namespace ReflectionInCharp
             p5.Talk("Talking by Person 5 dynamically");
         }
 
+        public static void RflectionOnGenericTypes()
+        {
+            var personlisttype = typeof(List<Person>);
+            Console.WriteLine(personlisttype.Name);
+            Console.WriteLine(personlisttype.FullName);
+            Console.WriteLine(personlisttype);
+
+            var personlist = Activator.CreateInstance(personlisttype);
+
+            foreach(var args in typeof(Dictionary<int,string>).GenericTypeArguments)
+            {
+                Console.WriteLine(args);
+            } 
+            foreach(var args in typeof(Dictionary<int,string>).GetGenericArguments())
+            {
+                Console.WriteLine(args);
+            }
+           foreach(var args in typeof(Dictionary<,>).GetGenericArguments())
+            {
+                Console.WriteLine(args);
+            }
+
+            //var openInstance = Activator.CreateInstance(typeof(Result<>)); //This will throw Error
+
+           var closedGenericType = typeof(Result<>).MakeGenericType(typeof(Person));
+           var closedPerson = Activator.CreateInstance(closedGenericType);
+
+           var Openmethod = closedGenericType.GetMethod("AlterAndReturnValue");
+           var closedMethod = Openmethod.MakeGenericMethod(typeof(string));
+
+           closedMethod.Invoke(closedPerson, new object[] { "Deepak" });
+        }
+
+        public static void IocContainerExample()
+        {
+            var container = new IoCContainer();
+            container.Register(typeof(IBeanService<>), typeof(ArabicaBeanService<Catimor>));
+            container.Register<IWaterService, TapWaterService>();
+            container.Register<ICoffeeService, CoffeeService>();
+            var waterService = container.Resolve<IWaterService>();
+            Console.WriteLine($"Water service is {waterService.GetType()} Registered");
+            var beanService = container.Resolve<IBeanService<Catimor>>();
+            Console.WriteLine($"Bean service is {beanService.GetType()} Registered");
+            var coffeeService =  container.Resolve<ICoffeeService>();
+            Console.WriteLine($"Coffee service is {coffeeService.GetType()} Registered");
+        } 
+                
+
+        public static void RflectionMagicEaxmple()
+        {
+            var person = new Person("Deepak");
+            Console.WriteLine($"person --- {person}");
+            var filedInfo = typeof(Person).GetField("_aPrivateField", BindingFlags.Instance |
+                BindingFlags.NonPublic);
+            filedInfo.SetValue(person, "Kumar");
+
+            Console.WriteLine($"person --- {person}");
+
+            person.AsDynamic()._aPrivateField = "Deepak";
+
+            Console.WriteLine($"person --- {person}");
+        }
     }
 }
