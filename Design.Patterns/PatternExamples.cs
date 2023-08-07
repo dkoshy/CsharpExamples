@@ -1,6 +1,9 @@
 ﻿using Design.Patterns.BuilderPattern;
+using Design.Patterns.StrategyPatern.Strategies.SalesTax;
+using Design.Patterns.StrategyPatern;
 using System;
 using System.Collections.Generic;
+using Design.Patterns.StrategyPatern.Strategies.Invoice;
 
 namespace Design.Patterns
 {
@@ -45,6 +48,43 @@ namespace Design.Patterns
 
         }
 
+        public static void StrategyPatternExample()
+        {
+            var sweedenOrder = new Order
+            {
+                ShippingDetails = new ShippingDetails
+                {
+                    OriginCountry = "Sweden",
+                    DestinationCountry = "Sweden"
+                },
+                ShippingStatus = ShippingStatus.WaitingForPayment,
+                SalesTaxStrategy = new SweedenSalestaxStrategy(),
+                InvoiceStrategy = new PrintOnDemandInvoiceStrategy()
+            };
+
+            var usOrder = new Order
+            {
+                ShippingDetails = new ShippingDetails
+                {
+                    OriginCountry = "USA",
+                    DestinationCountry = "USA",
+                    DestinationState="la"
+                },
+                SalesTaxStrategy = new UASSalestaxStrategy()
+            };
+            Console.WriteLine("----------Sweedan order tax-----------");
+            sweedenOrder.SelectedPayments.Add(new Payment { PaymentProvider = PaymentProvider.Invoice });
+            sweedenOrder.LineItems.Add(new Item("CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature), 1);
+            sweedenOrder.FinalizeOrder();
+            Console.WriteLine(sweedenOrder.GetTax());
+
+
+            Console.WriteLine("----------USA order tax-----------");
+
+            usOrder.LineItems.Add(new Item("CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature), 1);
+
+            Console.WriteLine(usOrder.GetTax()); // Console.WriteLine(usOrder.GetTax(new SweedenSalestaxStrategy()));
+        }
 
     }
 }

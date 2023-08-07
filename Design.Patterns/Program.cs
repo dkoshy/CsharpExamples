@@ -4,5 +4,6 @@ using System;
 
 
 //PatternExamples.BuilderPatternExample();
-PatternExamples.BuilderPatternWithFluentExample();
+//PatternExamples.BuilderPatternWithFluentExample();
+PatternExamples.StrategyPatternExample();
 Console.ReadLine();

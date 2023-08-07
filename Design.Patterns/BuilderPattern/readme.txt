@@ -13,5 +13,5 @@ The Builder Pattern in Practice:
 - Implement a director class  ---> Director class handles actual object creation
 - Update to a Fluent Builder variation
 
-This pattern is very usefull when object creation is sepated through multiple stages or steps.
+This pattern is very usefull when object creation is separated through multiple stages or steps.
 
