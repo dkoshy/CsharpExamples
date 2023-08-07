@@ -1,9 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Design.Patterns;
+﻿//See https://aka.ms/new-console-template for more information
 using System;
-
 
 //PatternExamples.BuilderPatternExample();
 //PatternExamples.BuilderPatternWithFluentExample();
-PatternExamples.StrategyPatternExample();
+//PatternExamples.StrategyPatternExample();
 Console.ReadLine();
+
