@@ -4,12 +4,14 @@ using Design.Patterns.StrategyPatern;
 using System;
 using System.Collections.Generic;
 using Design.Patterns.StrategyPatern.Strategies.Invoice;
+using Design.Patterns.ChainofResponsiblity;
+using System.Globalization;
 
 namespace Design.Patterns
 {
     public static class PatternExamples
     {
-
+        //creational Patern
         public static void BuilderPatternExample()
         {
             var items = new List<FurnitureItem>
@@ -29,6 +31,7 @@ namespace Design.Patterns
             Console.WriteLine(report.Debug());
         }
 
+        //creational Patern
         public static void BuilderPatternWithFluentExample()
         {
             var items = new List<FurnitureItem>
@@ -48,6 +51,7 @@ namespace Design.Patterns
 
         }
 
+        //behavioural
         public static void StrategyPatternExample()
         {
             var sweedenOrder = new Order
@@ -84,6 +88,23 @@ namespace Design.Patterns
             usOrder.LineItems.Add(new Item("CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature), 1);
 
             Console.WriteLine(usOrder.GetTax()); // Console.WriteLine(usOrder.GetTax(new SweedenSalestaxStrategy()));
+        }
+
+        //behavioral
+        public static void ChainOfResposiblityExample() 
+        {
+            var user = new User("Filip Ekberg",
+                "870101XXXX",
+                new RegionInfo("SE"),
+                new DateTimeOffset(1984, 05, 17, 00, 00, 00, TimeSpan.FromHours(2)));
+
+
+            Console.WriteLine(user.Age);
+            var processor = new UserProcessor();
+
+            var ressult = processor.Register(user);
+
+            Console.WriteLine(ressult);
         }
 
     }
