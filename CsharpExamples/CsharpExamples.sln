@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunctionalProgramming", "FunctionalProgramming", "{2091D63C-85AB-46B7-83E2-BCBB6A6CDB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functinal.Examples", "..\FunctinalExamples\Functinal.Examples\Functinal.Examples.csproj", "{92F9DA18-CD27-4AC5-B6DB-73457D614AD3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92F9DA18-CD27-4AC5-B6DB-73457D614AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92F9DA18-CD27-4AC5-B6DB-73457D614AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92F9DA18-CD27-4AC5-B6DB-73457D614AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92F9DA18-CD27-4AC5-B6DB-73457D614AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92F9DA18-CD27-4AC5-B6DB-73457D614AD3} = {2091D63C-85AB-46B7-83E2-BCBB6A6CDB5C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {337FC9D6-B6E4-40FD-9D49-AB508D2B1695}
