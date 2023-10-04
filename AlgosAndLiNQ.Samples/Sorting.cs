@@ -53,6 +53,41 @@ namespace AlgosAndLiNQ.Samples
             return nums;
         }
 
+        public static List<int> QuickSort(int[] nums)
+        {
+            List<int> sortedNums = new List<int>();
+
+           
+
+            var pivotElemntPlacement = (int[] n) =>
+            {
+                var len = n.Length;
+                var pivotelement = n[len-1];
+                var pointer = 0;
+
+                for(int i = 0; i< n.Length-1; i++) 
+                {
+                    if(pivotelement > n[i])
+                    {
+                        (n[pointer], n[i]) = (n[i], n[pointer]);
+                        pointer++;
+                    }
+                        
+                }
+                (n[pointer] , n[len-1]) = (n[len-1], n[pointer]);
+
+                sortedNums.AddRange(n[0..(pointer+1)]);
+                return n[(pointer+1)..len];
+            };
+
+
+            while (nums.Length > 1)
+            {
+                nums =  pivotElemntPlacement(nums[..]) ;
+            }
+            return sortedNums;
+        }
+
         public static void Print(this int[] nums)
         {
             foreach(int n in nums)

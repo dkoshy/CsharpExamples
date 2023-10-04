@@ -1,22 +1,37 @@
 ﻿
 using AlgosAndLiNQ.Samples;
+using AlgosAndLiNQ.Samples.LinQ;
 
-var numToSort = new int[] { 10, 30, 50, 30, 70, 71, 80, 16, 9 };
-//before sorting
-numToSort.Print();
+void algoExamples()
+{
 
-//Sorting.InsertionSort(numToSort).Print();
+    var numToSort = new int[] { 10, 30, 50, 30, 70, 71, 80, 16, 9 };
+    //before sorting
+    numToSort.Print();
 
-//serching
+    Sorting.QuickSort(numToSort).ToArray().Print();
 
-//Console.WriteLine(Search.LinearSearch(numToSort,200));
-Sorting.SelectionSort(numToSort);
-//Console.WriteLine(Search.BinarySearch(numToSort,71));
-//Console.WriteLine(Search.BinarySearch(numToSort,70));
-Console.WriteLine(Search.BinarySearch(numToSort,30));
+    //serching
 
+    //Console.WriteLine(Search.LinearSearch(numToSort,200));
+    //Sorting.SelectionSort(numToSort);
+    //Console.WriteLine(Search.BinarySearch(numToSort,71));
+    //Console.WriteLine(Search.BinarySearch(numToSort,70));
+   // Console.WriteLine(Search.BinarySearch(numToSort, 30));
 
+}
 
+void LinQExamples()
+{
+    var exp = new Comparison();
+    var result  =exp.UnionByMethod();
+    foreach (var i in result)
+          Console.WriteLine($"{i.ProductID} -  {i.Color}" );
+}
+
+//LinQExamples();
+
+algoExamples();
 
 
 
