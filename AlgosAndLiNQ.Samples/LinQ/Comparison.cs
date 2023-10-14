@@ -99,6 +99,9 @@ namespace AlgosAndLiNQ.Samples.LinQ
         }
 
         public List<Product> IntersectByProduct()
+
+
+
         {
             var list1 = _allproducts;
             var list2 = ProductRepository.GetAll();

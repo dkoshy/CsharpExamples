@@ -23,15 +23,14 @@ void algoExamples()
 
 void LinQExamples()
 {
-    var exp = new Comparison();
-    var result  =exp.UnionByMethod();
-    foreach (var i in result)
-          Console.WriteLine($"{i.ProductID} -  {i.Color}" );
+    var exp = new GroupByQueryExample();
+ exp.GroupByMethod();
+    
 }
 
-//LinQExamples();
+LinQExamples();
 
-algoExamples();
+//algoExamples();
 
 
 
