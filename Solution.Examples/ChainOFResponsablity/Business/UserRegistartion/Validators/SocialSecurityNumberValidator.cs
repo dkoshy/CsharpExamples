@@ -1,7 +1,7 @@
-﻿using ChainOFResponsablity.Business.Exceptions;
+﻿using ChainOFResponsablity.Business.UserRegistartion.Exceptions;
 using System.Globalization;
 
-namespace ChainOFResponsablity.Business.Validators;
+namespace ChainOFResponsablity.Business.UserRegistartion.Validators;
 
 public class SocialSecurityNumberValidator
 {

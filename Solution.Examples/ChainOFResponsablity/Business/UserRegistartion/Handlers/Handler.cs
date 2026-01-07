@@ -1,4 +1,4 @@
-﻿namespace ChainOFResponsablity.Business.Handlers;
+﻿namespace ChainOFResponsablity.Business.UserRegistartion.Handlers;
 
 
 public interface IHandler<T> where T:class

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace ChainOFResponsablity.Business.Models;
+namespace ChainOFResponsablity.Business.UserRegistartion.Models;
 
 public class User
 {

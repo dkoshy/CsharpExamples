@@ -1,9 +1,8 @@
-﻿using ChainOFResponsablity.Business.Exceptions;
-using ChainOFResponsablity.Business.Models;
-using ChainOFResponsablity.Business.Validators;
+﻿using ChainOFResponsablity.Business.UserRegistartion.Exceptions;
+using ChainOFResponsablity.Business.UserRegistartion.Models;
+using ChainOFResponsablity.Business.UserRegistartion.Validators;
 
-
-namespace ChainOFResponsablity.Business.Handlers;
+namespace ChainOFResponsablity.Business.UserRegistartion.Handlers;
 
 public class SocialSecurityNumberValidatorHandler :Handler<User>
 {

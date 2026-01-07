@@ -1,6 +1,5 @@
-﻿using ChainOFResponsablity.Business.Handlers;
-using ChainOFResponsablity.Business.Models;
-using ChainOFResponsablity.Business.Validators;
+﻿using ChainOFResponsablity.Business.UserRegistartion.Handlers;
+using ChainOFResponsablity.Business.UserRegistartion.Models;
 
 namespace ChainOFResponsablity.Business;
 
