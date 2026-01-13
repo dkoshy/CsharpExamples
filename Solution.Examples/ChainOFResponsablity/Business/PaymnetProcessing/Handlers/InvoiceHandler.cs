@@ -1,15 +1,22 @@
 ﻿using ChainOFResponsablity.Business.PaymnetProcessing.Models;
+using ChainOFResponsablity.Business.PaymnetProcessing.PaymentProcessors;
 
 namespace ChainOFResponsablity.Business.PaymnetProcessing.Handlers;
 
 public class InvoiceHandler : PaymentHandler
 {
-    public InvoiceHandler(IHandler<Order> handler) : base(handler)
+    private readonly InvoicePaymentProcessor _paymentProcessor;
+    public InvoiceHandler() 
     {
+        _paymentProcessor = new InvoicePaymentProcessor();
     }
 
     public override void Handle(Order request)
     {
-        base.Handle(request);
+        if (request.SelectedPayments.Any(p => p.PaymentProvider == PaymentProvider.Invoice))
+        {
+            _paymentProcessor.Finalize(request);
+        }
+         base.Handle(request);
     }
 }
