@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MyShop.Domain\MyShop.Domain.csproj" />
+		<ProjectReference Include="..\MyShop.Infrastructure\MyShop.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DB\" />
+	  <Folder Include="Properties\" />
+	</ItemGroup>
+</Project>
